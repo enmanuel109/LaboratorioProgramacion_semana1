@@ -22,6 +22,7 @@ public class Cantarero_SalvadorPlanilla_de_Empleado {
         double  PagoPorHora = sc.nextDouble();
 
         double Salario = (HorasTrabajadas*PagoPorHora)/4;
+        System.out.println("----- Boleta del Empleado -------");
         System.out.println("Nombre del empleado : " + nombre);
         System.out.println("Horas trabajadas en el mes : " + HorasTrabajadas);
         System.out.println("EL pago por hora es: " + PagoPorHora);
