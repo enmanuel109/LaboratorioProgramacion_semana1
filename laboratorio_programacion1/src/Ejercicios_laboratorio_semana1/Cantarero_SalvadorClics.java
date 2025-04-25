@@ -23,6 +23,6 @@ public class Cantarero_SalvadorClics {
         double COSTO_TOTAL = costo_total_sinISV + impiuesto;  
         
         System.out.println("el costo promedio es: " + CPC_prpmedio);
-        System.out.println("el total es de: " + COSTO_TOTAL);  
+        System.out.println(formato.format("el total es de: " + COSTO_TOTAL));  
     }
 }
