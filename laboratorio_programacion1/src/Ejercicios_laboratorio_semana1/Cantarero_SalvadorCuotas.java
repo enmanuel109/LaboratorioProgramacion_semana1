@@ -33,7 +33,7 @@ public class Cantarero_SalvadorCuotas {
         double SeguroDeLaCuota_Total = (SeguroDeLaCuota*cuota_Total)/100;
         
         double CuotaPorMes = Pago_Mensual+interes_Total+cuota_Total+SeguroDeLaCuota_Total;
-        double Total_Pagar = CuotaPorMes+Plazo;
+        double Total_Pagar = CuotaPorMes+Prestamo;
         
         System.out.println("**** CUOTAS MENSUALES *******");
         System.out.println("Cuota de Pago Mensual: lps " + CuotaPorMes);
