@@ -30,6 +30,7 @@ public class Cantareros_Salvador_Estructuras {
         
         switch(opcion){
             case 1 :
+                //opcion numero 1, se ingresa la palabra
                 primera++;
                 System.out.println("\n** Seleciono la palabra alreves **");
                 System.out.print("ingrese cuantas palabras quiere ingresar: ");
@@ -42,6 +43,8 @@ public class Cantareros_Salvador_Estructuras {
                 int cantidad_Palabras_larga = Palabras_larga.length();
                 String palindrome = "";
                 
+                //hace el proceso por cada palabra en for
+                
                 for(int i=1; i<=palabras; i++){
                     System.out.print("Ingresa la palabra "+i+ " :");
                     String palabra = lea.nextLine();
@@ -53,6 +56,8 @@ public class Cantareros_Salvador_Estructuras {
                     
                     String Alreves = "";
                     
+                    //hace el proceso por cada caracter de invertir
+                    
                     for(int j=Cantidad_Caracteres-1;j>=0;j--){
                         char caracter_actual = palabra.charAt(j);
                         Alreves = Alreves + caracter_actual;
@@ -63,6 +68,9 @@ public class Cantareros_Salvador_Estructuras {
                     if(cantidad_Palabras_larga<Cantidad_Caracteres){
                         Palabras_larga_Alraves = Alreves;
                     }
+                    
+                    //hace el proceso de si la palabra es palindrome
+                    
                     if (Palabras_larga == Palabras_larga_Alraves){
                             palindrome="es palindrome";
                     } else{
@@ -77,15 +85,17 @@ public class Cantareros_Salvador_Estructuras {
                 break;
             case 2 :
                 segunda++;
-
+                //se ingresa el numero
                 System.out.println("Ingresar numero :");
                     int Numero= lea.nextInt();
                     int suma=0;
+                    //hace el proceso por cada palabra en for
                     for(int i=1; i<Numero ; i++){
                         if( Numero%i==0){
                         suma+=i;
                         }
                     }
+                    //imprime si es perfecto
                     if(suma==Numero){
                     System.out.println(Numero+": es un numero perfecto");
                     } else {
@@ -117,7 +127,7 @@ public class Cantareros_Salvador_Estructuras {
                 int rojo=0;
                 int negro=0;
                 int amarillo=0;
-                        
+                //hace el proceso si es de algun partido
                 for(int i =1;i<=Votos_total;i++){
                     System.out.println("Voto numero "+i+" elija entre (AZUL,ROJO,NEGRO,AMARILLO): ");
                     String Voto = lea.next();
@@ -172,6 +182,7 @@ public class Cantareros_Salvador_Estructuras {
         }
     
     }while(opcion != 5);{}
+    //imprime las veces que ingre a cada opcion
         System.out.println("Opcion 1: " + primera + " veces");
         System.out.println("Opcion 2: " + segunda + " veces");
         System.out.println("Opcion 3: " + tercera + " veces");
