@@ -4,6 +4,7 @@
  */
 package Examen1LabPro1;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -119,7 +120,7 @@ public class Cantarero_Salvador_Exam1 {
 
                     break;
                 case 3:
-                    System.out.println("--- Juego de Piedra, Papel y Tijera ---");
+                    System.out.println("--- Opcion Juego de Piedra, Papel y Tijera ---");
                     String eleccion_menu;
                     do {
                         System.out.println("Bienvenido Player, a neustro juego e Piedra, Papel y Tijera");
@@ -134,6 +135,33 @@ public class Cantarero_Salvador_Exam1 {
 
                     break;
                 case 4:
+                    System.out.println("--- Opcion Adivinar ---");
+                    Random Alazar = new Random();
+
+                    int numero_Alazar = Alazar.nextInt(100) + 1;
+                    int intento_Max = 10;
+                    int intento_Actual;
+                    boolean acertado = false;
+
+                    for (int intento_contador = 1; intento_contador <= intento_Max && !acertado; intento_contador++) {
+                        System.out.println("Tienes " + (intento_Max - intento_contador + 1) + " intentos restantes");
+                        System.out.println("Ingrese un numero: ");
+                        intento_Actual = lea.nextInt();
+
+                        if (intento_Actual == numero_Alazar) {
+                            System.out.println("Exelente Asertasntes el numero en tu " + intento_Max + " intento");
+                            acertado = true;
+                        } else if (intento_Actual < numero_Alazar) {
+                            System.out.println("el numero secreto es mayor");
+                        } else {
+                            System.out.println("el numero secreto es menor");
+                        }
+
+                    }
+                    if (!acertado) {
+                        System.out.println("Lo siento, has agotado tus intentos.");
+                        System.out.println("El número secreto era: " + numero_Alazar);
+                    }
                     break;
                 case 5:
                     break;
