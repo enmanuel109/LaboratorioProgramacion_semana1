@@ -30,6 +30,7 @@ public class Cantarero_Salvador_Exam1 {
                 System.out.println("3) Juego de Piedra, Papel y Tijera.");
                 System.out.println("4) Adivinar.");
                 System.out.println("5) Salir.");
+                System.out.print("Ingrese una opcion del menu: ");
                 opciones = lea.next();
 
                 //El if funcion para mandar un error de valor incorrecta
