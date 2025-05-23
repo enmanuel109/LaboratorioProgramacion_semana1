@@ -15,8 +15,8 @@ public class Cantarero_Salvador_Exam1 {
 
     public static void main(String[] args) {
         Scanner lea = new Scanner(System.in);
-
-        int opciones;
+        Random Alazar = new Random();
+        String opciones;
         //el do-whille sirve para regresar el menu si no es 5
 
         do {
@@ -30,17 +30,17 @@ public class Cantarero_Salvador_Exam1 {
                 System.out.println("3) Juego de Piedra, Papel y Tijera.");
                 System.out.println("4) Adivinar.");
                 System.out.println("5) Salir.");
-                opciones = lea.nextInt();
+                opciones = lea.next();
 
                 //El if funcion para mandar un error de valor incorrecta
-                if (opciones < 1 && opciones > 5) {
+                if (!opciones.equals("1")&&!opciones.equals("2")&&!opciones.equals("3")&&!opciones.equals("4")&&!opciones.equals("5")) {
                     System.out.println("Error: La opcion no es valida");
                 }
 
-            } while (opciones < 1 && opciones > 5);
+            } while (!opciones.equals("1")&&!opciones.equals("2")&&!opciones.equals("3")&&!opciones.equals("4")&&!opciones.equals("5"));
 
             switch (opciones) {
-                case 1:
+                case "1":
                     //Opcion de piramirde
                     System.out.println("--- Opcion Piramide ---");
                     System.out.println("*Ingrese la cantidad de filas de la piramide: ");
@@ -63,7 +63,7 @@ public class Cantarero_Salvador_Exam1 {
                     }
                     System.out.println("\n");
                     break;
-                case 2:
+                case "2":
                     //Opcion de Clave
                     lea.useDelimiter("\n");
                     lea.nextLine();
@@ -96,7 +96,7 @@ public class Cantarero_Salvador_Exam1 {
                         Mensaje_cifrado = Mensaje_cifrado + caracter_suma;
                     }
 
-                    System.out.println("El mensaje cifrado =" + Mensaje_cifrado);
+                    System.out.println("El mensaje cifrado =" + Mensaje_cifrado+"\n");
 
                     String Mensaje_descifrado = "";
                     for (int indice = 0; indice < Mensaje_cifrado.length(); indice++) {
@@ -116,40 +116,71 @@ public class Cantarero_Salvador_Exam1 {
                         Mensaje_descifrado = Mensaje_descifrado + caracter_original;
                     }
 
-                    System.out.println("El mensaje descifrado: " + Mensaje_descifrado);
+                    System.out.println("El mensaje descifrado: " + Mensaje_descifrado+"\n");
 
                     break;
-                case 3:
+                case "3":
                     System.out.println("--- Opcion Juego de Piedra, Papel y Tijera ---");
-                    String eleccion_menu;
-                    do {
-                        System.out.println("Bienvenido Player, a neustro juego e Piedra, Papel y Tijera");
-                        System.out.println("Te tocara jugar contra Mi, Mr.PcThanos");
-                        System.out.println("Ingrese(piedra,papel o tijera)");
+                    String eleccion_menu = "";
+                    String Nueva_jugada;
+                    do{
+                    System.out.println("**Bienvenido Player, a nuestro juego de Piedra, Papel y Tijera**\n");
+                                            System.out.println("*Te tocara jugar contra Mi Mr.PcThanos*\n");
+                    boolean entrada = false;
+                    while (!entrada) {
+                        System.out.println("Ingrese (piedra, papel o tijera) :");
                         eleccion_menu = lea.next().toLowerCase();
 
-                        if (!eleccion_menu.equals("piedra") && !eleccion_menu.equals("papel") && !eleccion_menu.equals("tijera")) {
-                            System.out.println("Error: EL valor es invalido");
+                        if (eleccion_menu.equals("piedra") || eleccion_menu.equals("papel") || eleccion_menu.equals("tijera")) {
+                            entrada = true;
+                        } else {
+                            System.out.println("Error: EL valor es invalido\n");
                         }
-                    } while (!eleccion_menu.equals("piedra") && !eleccion_menu.equals("papel") && !eleccion_menu.equals("tijera"));
+                    }
+
+                    int Computadora = Alazar.nextInt(3);
+                    String Eleccion_Computadora = "";
+
+                    if (Computadora == 0) {
+                        Eleccion_Computadora = "piedra";
+                    } else if (Computadora == 1) {
+                        Eleccion_Computadora = "papel";
+                    } else {
+                        Eleccion_Computadora = "tijera";
+                    }
+                    System.out.println("\n** La eleccion mia a sido: " + Eleccion_Computadora);
+
+                    if (eleccion_menu.equals(Eleccion_Computadora)) {
+                        System.out.println("\n-- Has tenido un empate conmigo\n");
+                    } else if ((eleccion_menu.equals("piedra") && eleccion_menu.equals("tijera"))
+                            || (eleccion_menu.equals("papel") && eleccion_menu.equals("piedra"))
+                            || (eleccion_menu.equals("tijera") && eleccion_menu.equals("papel"))) {
+                        System.out.println("\n-- Ganaste esta ronda\n");
+                    } else {
+                        System.out.println("\n-- Te he ganado esta ronda\n");
+                    }
+                    
+                    System.out.print("Quieres jugar nuevamente(si,no): \n");
+                    Nueva_jugada = lea.next().toLowerCase();
+
+                    } while (Nueva_jugada.equals("si"));
+
 
                     break;
-                case 4:
+                case "4":
                     System.out.println("--- Opcion Adivinar ---");
-                    Random Alazar = new Random();
-
                     int numero_Alazar = Alazar.nextInt(100) + 1;
                     int intento_Max = 10;
                     int intento_Actual;
                     boolean acertado = false;
 
                     for (int intento_contador = 1; intento_contador <= intento_Max && !acertado; intento_contador++) {
-                        System.out.println("Tienes " + (intento_Max - intento_contador + 1) + " intentos restantes");
+                        System.out.println("Tienes " + (intento_Max - intento_contador + 1) + " intentos restantes\n");
                         System.out.println("Ingrese un numero: ");
                         intento_Actual = lea.nextInt();
 
                         if (intento_Actual == numero_Alazar) {
-                            System.out.println("Exelente Asertasntes el numero en tu " + intento_Max + " intento");
+                            System.out.println("Exelente Asertasntes el numero en tu " + intento_Max + " intento\n");
                             acertado = true;
                         } else if (intento_Actual < numero_Alazar) {
                             System.out.println("el numero secreto es mayor");
@@ -160,12 +191,14 @@ public class Cantarero_Salvador_Exam1 {
                     }
                     if (!acertado) {
                         System.out.println("Lo siento, has agotado tus intentos.");
-                        System.out.println("El número secreto era: " + numero_Alazar);
+                        System.out.println("El numero secreto era: " + numero_Alazar + "\n");
+
                     }
                     break;
-                case 5:
+                case "5":
+                    System.out.println("Menu cerrado.");
                     break;
             }
-        } while (opciones != 5);
+        } while (!opciones.equals("5"));
     }
 }
